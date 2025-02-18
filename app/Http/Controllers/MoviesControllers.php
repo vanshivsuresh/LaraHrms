@@ -24,7 +24,7 @@ class MoviesControllers extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store controller method is used to store the movies images. 
      */
     public function store(Request $request)
     {
