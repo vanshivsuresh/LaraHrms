@@ -22,7 +22,7 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
 
-      - name: Executing remote ssh commands using ssh key
+      - name: Executing remote SSH commands using ssh key
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST_DNS }}
@@ -35,5 +35,11 @@ jobs:
             sudo mkdir -p /var/www/html
             sudo systemctl start apache2
             sudo systemctl enable apache2
-            cd home
-            sudo mv * /var/www/html
+
+            # Sync files instead of moving them
+            sudo rsync -av --delete ~/home/ /var/www/html/
+
+            # Set correct permissions for Apache
+            sudo chown -R www-data:www-data /var/www/html
+            sudo chmod -R 755 /var/www/html
+            sudo systemctl restart apache2
