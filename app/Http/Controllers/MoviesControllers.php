@@ -24,7 +24,7 @@ class MoviesControllers extends Controller
     }
 
     /**
-     * Store movies detailed data. 
+     * Store movies detailed data added the poster on filepath. 
      */
     public function store(Request $request)
     {
