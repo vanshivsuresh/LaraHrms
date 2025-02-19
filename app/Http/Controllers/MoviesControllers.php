@@ -24,7 +24,7 @@ class MoviesControllers extends Controller
     }
 
     /**
-     * Store movies detailed data like images and descriptions of movies. 
+     * Store movies detailed data like images and descriptions of movie. 
      */
     public function store(Request $request)
     {
