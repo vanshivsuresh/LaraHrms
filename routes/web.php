@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//router is define for projects
+//router is define
 Route::resource('/movies',MoviesControllers::class);
 // Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');
 // Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
